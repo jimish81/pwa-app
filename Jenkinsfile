@@ -66,6 +66,7 @@ pipeline {
     
     stage('Clone Selenium Git'){
       steps{
+        sh 'cd ..'
         git 'https://github.com/mazuma5/JavaSeleniumBDD'
       }
     }
