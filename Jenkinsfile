@@ -70,7 +70,7 @@ pipeline {
       }
     }
     
-    stage('Build') {
+    stage('Build Selenium') {
       steps {
         sh "chmod +x src/main/resources/drivers/chromedriverlinux"
         sh "mvn test"
