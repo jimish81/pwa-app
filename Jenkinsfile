@@ -6,7 +6,11 @@ pipeline {
     containerId = sh(script: 'docker ps -aqf "name=pwa-node-app"', returnStdout:true)
   }
   agent any
-  tools {nodejs "node"}
+  tools {
+    nodejs "node"
+    maven 'Maven'
+    jdk 'JDK'
+  }
     
   stages {
     stage('Cloning Git') {
@@ -59,5 +63,19 @@ pipeline {
         sh 'docker run --name=pwa-node-app -d -p 3000:8080 $registry:$BUILD_NUMBER &'
       }
     }
+    
+    stage('Clone Selenium Git'){
+      steps{
+        git 'https://github.com/mazuma5/JavaSeleniumBDD/tree/linux'
+      }
+    }
+    
+    stage('Build') {
+      steps {
+        sh "chmod +x src/main/resources/drivers/chromedriverlinux"
+        sh "mvn test"
+      }
+    }  
+    
   }
 }
