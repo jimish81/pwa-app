@@ -64,7 +64,7 @@ pipeline {
       }
     }
     
-    stage('Clone Selenium Git'){
+  /*  stage('Clone Selenium Git'){
       steps{
         sh 'cd ..'
         git 'https://github.com/mazuma5/JavaSeleniumBDD'
@@ -76,7 +76,7 @@ pipeline {
         sh "chmod +x src/main/resources/drivers/chromedriverlinux"
         sh "mvn test"
       }
-    }  
+    }  */
     
   }
 }
