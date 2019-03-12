@@ -17,6 +17,7 @@ pipeline {
         
     stage('Build') {
       steps {
+        sh 'npm install --save-dev @angular-devkit/build-angular'
         sh 'ng build --prod'
       }
     }
