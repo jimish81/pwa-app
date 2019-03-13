@@ -18,9 +18,15 @@ pipeline {
     }
     
     stage('Cloning QA'){
-      steps{
-        git 'https://github.com/mazuma5/JavaSeleniumBDD'
-      }
+      steps {
+            sh 'mkdir -p Module1'
+            dir("Module1")
+            {
+                git branch: "linux",
+                credentialsId: 'Git',
+                url: 'git@github.com:mazuma5/JavaSeleniumBDD.git'
+            }
+        }
     }
         
     stage('Build') {
