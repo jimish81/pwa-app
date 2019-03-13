@@ -10,12 +10,12 @@ pipeline {
     nodejs "node"
   }
     
-  stages {
+ /* stages {
     stage('Cloning Git') {
       steps {
         git 'https://github.com/mazuma5/JavaSeleniumBDD/tree/linux'
       }
-    }
+    }*/
     
         
     stage('Build') {
