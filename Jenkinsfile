@@ -28,6 +28,11 @@ pipeline {
          sh 'npm test'
       }
     }*/
+    stage('Sonar scan'){
+      steps{
+        sh 'sonar-scanner -Dsonar.projectKey=pwa -Dsonar.sources=.'
+      }
+    }
     stage('Building Image'){
       steps{
         script{
