@@ -17,11 +17,6 @@ pipeline {
       }
     }
     
-    stage('Cloning QA'){
-      steps {
-            
-        }
-    }
         
     stage('Build') {
       steps {
