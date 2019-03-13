@@ -33,7 +33,7 @@ pipeline {
     }*/
     stage('Sonar scan'){
       steps{
-        sh 'sonar-scanner -Dsonar.projectKey=pwa -Dsonar.sources=.'
+        sh '/app/sonar-scanner/bin/sonar-scanner -Dsonar.projectKey=pwa -Dsonar.sources=.'
       }
     }
     stage('Building Image'){
@@ -67,21 +67,6 @@ pipeline {
       steps{
         sh 'docker run --name=pwa-node-app -d -p 3000:8080 $registry:$BUILD_NUMBER &'
       }
-    }
-    
-  /*  stage('Clone Selenium Git'){
-      steps{
-        sh 'cd ..'
-        git 'https://github.com/mazuma5/JavaSeleniumBDD'
-      }
-    }
-    
-    stage('Build Selenium') {
-      steps {
-        sh "chmod +x src/main/resources/drivers/chromedriverlinux"
-        sh "mvn test"
-      }
-    }  */
-    
+    }    
   }
 }
