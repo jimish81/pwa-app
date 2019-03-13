@@ -19,6 +19,7 @@ pipeline {
     
     stage('Cloning QA'){
       steps {
+            sh 'cd ..'
             sh 'mkdir -p Module1'
             dir("Module1")
             {
