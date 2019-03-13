@@ -19,13 +19,7 @@ pipeline {
     
     stage('Cloning QA'){
       steps{
-       checkout([
-            $class: 'GitSCM',
-            branches: scm.branches,
-            extensions: scm.extensions + [[$class: 'LocalBranch'], [$class: 'WipeWorkspace']],
-            userRemoteConfigs: [[credentialsId: 'Git', url: 'git@github.com:mazuma5/JavaSeleniumBDD.git']],
-            doGenerateSubmoduleConfigurations: false
-        ])
+        git 'https://github.com/mazuma5/JavaSeleniumBDD'
       }
     }
         
