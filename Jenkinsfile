@@ -13,20 +13,13 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/mazuma5/pwa-app'
+        git 'https://github.com/mazuma5/JavaSeleniumBDD/tree/linux'
       }
     }
     
     stage('Cloning QA'){
       steps {
-            sh 'cd ..'
-            sh 'mkdir -p Module1'
-            dir("Module1")
-            {
-                git branch: "linux",
-                credentialsId: 'Git',
-                url: 'git@github.com:mazuma5/JavaSeleniumBDD.git'
-            }
+            
         }
     }
         
